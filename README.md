@@ -14,3 +14,6 @@ npm i -C ./client && npm i -C ./server
 ```
 docker-compose up
 ```
+
+Once the container is running, visit
+> localhost:3000
