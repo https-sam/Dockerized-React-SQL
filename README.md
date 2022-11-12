@@ -20,5 +20,8 @@ npm i -C ./client && npm i -C ./server
 docker-compose up
 ```
 
-Once the container is running, visit
-> localhost:3000
+Once the container is running, visit [localhost:3000](http://localhost:3000)
+
+
+
+> :warning: env file present in /server, but it only contains a default password
