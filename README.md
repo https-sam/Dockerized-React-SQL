@@ -1,4 +1,4 @@
-# Containerized full stack application template
+# Dockerized full stack application template
 
 This template utilizes 
 - Postgres server
