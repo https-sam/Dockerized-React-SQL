@@ -49,7 +49,6 @@ const UsersPage = () => {
     .catch(err => console.log(err));
   }, [])
 
-  console.log(users)
   
   // SG 11/11/2022 19:55  if no users, return nothing (we could render a loading icon / message here)
   if(users.length === 0) return null;
