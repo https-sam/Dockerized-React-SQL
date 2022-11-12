@@ -19,6 +19,8 @@ const dbConfig = {
 };
 const db = pgp(dbConfig);
 
+/***** Defining endpoints  *****/
+
 app.get("/fetch-users", (req, res) => {
   db.any("SELECT username, profile_image, description FROM users;")
     .then((data) => {
@@ -50,7 +52,7 @@ app.post("/add-user", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("hello worssssld");
+  res.send("hello world");
 });
 
 app.listen(PORT, () => {
