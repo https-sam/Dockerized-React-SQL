@@ -26,6 +26,7 @@
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
   margin: 2rem;
   width: 15rem;
+  border-radius: 10px;
 }
 
 .user-card-container > button {
