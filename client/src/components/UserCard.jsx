@@ -1,7 +1,7 @@
 import React from 'react'
 
 const UserCard = ({user}) => {
-  const {id, username, profile_image, description} = user;
+  const {username, profile_image, description} = user;
   return (
     <div className='user-card-container flex-center'>
       <img src={profile_image} alt={username} className="avatar-image"/>
