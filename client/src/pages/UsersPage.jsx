@@ -16,7 +16,7 @@ const UsersPage = () => {
   });
 
 
-  // SG 11/11/2022 19:52  A funciton that makes a post request to the backend to add a user
+  // SG 11/11/2022 19:52  A function that makes a post request to the backend to add a user
   const handleSubmit = async (e) => {
     // SG 11/11/2022 19:53  checking is the input fields are empty
     if(!inputUser || !inputUser.username || !inputUser.profile_image || !inputUser.description) return;
@@ -25,7 +25,7 @@ const UsersPage = () => {
     // SG 11/11/2022 19:54  making a call
     await axios.post(ADD_USER_ENDPOINT, inputUser)
     .then(( {data} )=> {
-      console.log(data)
+      // server returns the new user, so adding it to the state array
       setUsers([...users, data])
     })
     .catch(e => console.log(e))
