@@ -8,7 +8,7 @@ This template utilizes
 
 To spin up the docker image, run 
 ```
-npm i ./client && npm i ./server
+npm i -C ./client && npm i -C ./server
 ```
 
 ```
