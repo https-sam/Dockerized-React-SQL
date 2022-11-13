@@ -12,9 +12,6 @@ To spin up the docker image, run
 cd CRUD-docker/
 ```
 
-```
-npm i -C ./client && npm i -C ./server
-```
 
 ```
 docker-compose up
