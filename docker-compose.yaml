@@ -1,23 +1,25 @@
 version: '3.9'
 services:
   db:
-    image: postgres:14
-    env_file: ./server/.env
-    expose:
-      - '5432'
-    user: postgres
-    volumes:
-      - db:/home/postgresql/data
-      - ./server/utils:/docker-entrypoint-initdb.d
+      image: postgres:14
+      env_file: ./server/.env
+      expose:
+        - '5432'
+      user: postgres
+      volumes:
+        - db:/app/postgresql/data
+        - ./server/utils:/docker-entrypoint-initdb.d
 
   server:
-    env_file: ./server/.env
-    build: ./server/ # look for Dockerfile and build
-    ports:
-      - '8080:8080'
-    volumes:
-      - ./server/:/home/server # copyinh server dir
-      - /home/server/node_modules 
+      # env_file: .env
+      build: ./server/ # look for Dockerfile and build
+      ports:
+        - '8080:8080'
+      volumes:
+        - ./server/:/app # copyinh server dir
+        - /app/node_modules 
+      environment: 
+        - NODE_ENV=development
 
   client:
     # env_file: .env
@@ -25,8 +27,8 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - ./client/:/home/client
-      - /home/client/node_modules 
+      - ./client/:/app
+      - /app/node_modules 
     depends_on:
         - server
 volumes:
