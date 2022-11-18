@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react'
-import axios from 'axios'
 import { useState } from 'react';
 import UserCard from '../components/UserCard';
 import './usersPage.css'
+import axios from '../utils/config';
+import { config } from '../utils/config';
 
 const UsersPage = () => {
-  const FETCH_USER_ENDPOINT = 'http://localhost:8080/fetch-users';
-  const ADD_USER_ENDPOINT = 'http://localhost:8080/add-user';
-
   const [users, setUsers] = useState([]);
   const [inputUser, setInputUser] = useState({
     username: '',
@@ -16,14 +14,21 @@ const UsersPage = () => {
   });
 
 
+
   // SG 11/11/2022 19:52  A function that makes a post request to the backend to add a user
+  /**
+   * @param {Event} e - object
+   * @returns {void}
+   */
   const handleSubmit = async (e) => {
+
     // SG 11/11/2022 19:53  checking is the input fields are empty
+    // TODO: Display an error message on the browser
     if(!inputUser || !inputUser.username || !inputUser.profile_image || !inputUser.description) return;
 
     e.preventDefault();
-    // SG 11/11/2022 19:54  making a call
-    await axios.post(ADD_USER_ENDPOINT, inputUser)
+    // SG 11/11/2022 19:54  making a request
+    await axios.post(config.ADD_USER_ENDPOINT, inputUser)
     .then(( {data} )=> {
       // server returns the new user, so adding it to the state array
       setUsers([...users, data])
@@ -39,18 +44,21 @@ const UsersPage = () => {
   }
 
   // SG 11/11/2022 19:54  fetches users, returns a promise
+  /**
+   * @returns {Promise}
+   */
   const fetchUsers = () => {
-    return axios.get(FETCH_USER_ENDPOINT)
+    return axios.get(config.FETCH_USER_ENDPOINT)
   }
 
+  // SG 11/18/2022 13:50 fetches users at initial render
   useEffect(() => {
     fetchUsers()
     .then(({data}) => setUsers(data))
     .catch(err => console.log(err));
   }, [])
 
-  
-  // SG 11/11/2022 19:55  if no users, return nothing (we could render a loading icon / message here)
+  // SG 11/18/2022 13:30 fetch not complete or no users
   if(users.length === 0) return null;
 
   return (
