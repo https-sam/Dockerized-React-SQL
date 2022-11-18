@@ -2,9 +2,10 @@
 
 This template utilizes 
 - Postgres server
-- Node
+- Node (Javasript)
 - Express
-- React
+- React (Javascript)
+  - React Router
 
 To spin up the docker image, run 
 
