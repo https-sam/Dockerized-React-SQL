@@ -22,4 +22,4 @@ Once the container is running, visit [localhost:3000](http://localhost:3000)
 
 
 
-> :warning: env file present in /server, which only contains default credentials. However, it should generally be avoided when it contains sensitive information.
+> :warning: env file present in /server, which only contains default credentials. However, it should generally be avoided when it contains sensitive information like API keys.
