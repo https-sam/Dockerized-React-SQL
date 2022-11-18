@@ -10,7 +10,7 @@ This template utilizes
 To spin up the docker image, run 
 
 ```
-cd CRUD-docker/
+cd Dockerized-React-SQL/
 ```
 
 
