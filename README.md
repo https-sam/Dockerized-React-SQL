@@ -7,7 +7,7 @@ This template utilizes
 - React (Javascript)
   - React Router
 
-To spin up the docker image, run 
+To spin up the docker image, first clone the repository and run:
 
 ```
 cd Dockerized-React-SQL/
